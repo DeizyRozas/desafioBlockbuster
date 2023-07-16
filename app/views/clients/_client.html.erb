@@ -1,0 +1,23 @@
+<div id="<%= dom_id client %>">
+
+  <ul class="list-group">
+    <li class="list-group-item active" aria-current="true">
+      <p class= 'text-warning fw-bold'>ID cliente: <%= client.id %></p>
+    </li>
+    <li class="list-group-item">
+      <p><strong>Nombre cliente:</strong>  <%= client.name %></p>
+    </li>
+    <li class="list-group-item">
+      <p><strong>Edad:</strong> <%= client.age %></p>
+    </li>
+    <li class="list-group-item">
+      <strong>Peliculas arrendadas:</strong> 
+      <ul class="list-group-flush">
+        <% client.movies.each do |movie| %>
+          <li class="list-group-item"> <%= movie.name %></li>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+
+</div>

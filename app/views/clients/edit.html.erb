@@ -1,0 +1,13 @@
+
+
+
+<h3 class="my-3">Edición cliente ID n°: <%=@client.id%>, <%=@client.name%></h3>
+
+<%= render "form", client: @client %>
+
+<br>
+
+<div>
+  <%= link_to "Show this client", @client %> |
+  <%= link_to "Back to clients", clients_path %>
+</div>

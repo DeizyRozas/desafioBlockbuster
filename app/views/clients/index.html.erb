@@ -1,0 +1,42 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+  <h1>Clients</h1>
+
+  <%= link_to "New client", new_client_path, class:'my-4 btn btn-warning' %>
+
+  <div id="clients">
+    <table class="table table-bordered table-striped">
+      <thead class="table-primary ">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Peliculas en arriendo</th>
+          <th scope="col" colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @clients.each do |client| %>
+          <tr>
+          <th scope="row"><%= client.id %></th>
+          <td><%= client.name %></td>
+          <td><%= client.age %></td>
+          <td>
+              <ol class="list-group-numbered">
+                <% client.movies.each do |movie| %>
+                  <li class="list-group-item"> <%= movie.name %></li>
+                <% end %>
+              </ol>
+          </td>
+          <td><%= link_to "Show this client", client %></td>
+          <td><%= link_to "Edit this client", edit_client_path(client) %></td>
+          <td><%= button_to "Destroy this client", client, method: :delete, data: { confirm: "Are you sure?" } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= javascript_include_tag 'application' %>
